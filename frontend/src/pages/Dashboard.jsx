@@ -4,11 +4,6 @@ import KPICard from "../components/KPICard";
 import TrendChart from "../components/TrendChart";
 import SegmentTable from "../components/SegmentTable";
 import AuditLogTable from "../components/AuditLogTable";
-import {
-  fetchKpiSummary, fetchKpiTrends, fetchTopCategories,
-  fetchSegmentSummary, fetchSegments,
-  fetchAuditLogs, downloadCSV
-} from "../services/api";
 
 const NAV_ITEMS = [
   { id: "overview",   label: "Overview",        roles: ["DataAnalyst", "SystemAdmin"] },
