@@ -7,6 +7,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import auth, customers, kpi, segments, audit
 from app.database import engine, Base
+from app.routes import analytics
+from app.routes import extras
 
 # Create all tables on startup (development mode)
 Base.metadata.create_all(bind=engine)
@@ -34,7 +36,8 @@ app.include_router(customers.router, prefix="/api/customers", tags=["Customers"]
 app.include_router(kpi.router,       prefix="/api/kpi",       tags=["KPI Analytics"])
 app.include_router(segments.router,  prefix="/api/segments",  tags=["Segmentation"])
 app.include_router(audit.router,     prefix="/api/audit",     tags=["Audit Logs"])
-
+app.include_router(analytics.router, prefix="/api/analytics")
+app.include_router(extras.router, prefix="/api/extras", tags=["Extras"])
 
 @app.get("/api/health", tags=["Health"])
 def health_check():

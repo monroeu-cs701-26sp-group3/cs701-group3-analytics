@@ -35,7 +35,7 @@ def login(
         db.add(AuditLog(
             action="LOGIN_FAILED",
             resource="/api/auth/token",
-            ip_address=request.client.host,
+            ip_address=request.client.host if request.client and request.client.host != "testclient" else None,
             status="denied",
             details={"username": form_data.username},
         ))
@@ -54,7 +54,7 @@ def login(
         user_id=user.user_id,
         action="LOGIN_SUCCESS",
         resource="/api/auth/token",
-        ip_address=request.client.host,
+        ip_address=request.client.host if request.client and request.client.host != "testclient" else None,
         status="success",
     ))
     db.commit()

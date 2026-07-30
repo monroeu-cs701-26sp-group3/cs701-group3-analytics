@@ -69,11 +69,6 @@ export default function LoginPage({ onLogin }) {
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
-
-        <div className="mt-5 border-t pt-4 text-xs text-gray-400 text-center space-y-1">
-          <p>Demo accounts: <code>admin</code> / <code>analyst1</code> / <code>compliance</code></p>
-          <p>Password: <code>Password123!</code></p>
-        </div>
       </div>
     </div>
   );
